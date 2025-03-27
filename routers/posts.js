@@ -40,3 +40,5 @@ router.delete('/:id', function(req,res) {
     res.send(`Eliminazione del post ${id}`);
 })
 
+// esportare router
+module.exports = router;
