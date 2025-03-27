@@ -11,6 +11,11 @@ app. listen (port, () => {
     console.log(`Sono un server attivo sulla porta ${port}`);
 })
 
+// homepage
+app.get('/', (req,res) => {
+    res.send('Sono nella homepage');
+})
+
 // importare router
 const postsRouter = require('./routers/posts.js');
 
