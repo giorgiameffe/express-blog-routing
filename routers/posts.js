@@ -8,7 +8,7 @@ const router = express.Router();
 
 // index
 router.get('/', function (req,res) {
-    res.send('Lista dei post');
+    res.json(postsFood);
 })
 
 // show 
@@ -42,3 +42,6 @@ router.delete('/:id', function(req,res) {
 
 // esportare router
 module.exports = router;
+
+// importare posts-food 
+const postsFood = require('../data/posts-food.js');
