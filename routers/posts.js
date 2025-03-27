@@ -13,8 +13,15 @@ router.get('/', function (req,res) {
 
 // show 
 router.get('/:id', function (req,res) {
+
     const {id} = req.params;
-    res.send(`Dettagli della pizza ${id}`);
+    const currentPost = postsFood[id-1];
+    
+        if (id <= postsFood.length) {
+            res.json(currentPost);
+        } else {
+            res.send('Non ci sono altri elementi');
+        }
 })
 
 // store

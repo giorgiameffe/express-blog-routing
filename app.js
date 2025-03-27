@@ -11,6 +11,9 @@ app. listen (port, () => {
     console.log(`Sono un server attivo sulla porta ${port}`);
 })
 
+// public assests
+app.use(express.static('public'));
+
 // homepage
 app.get('/', (req,res) => {
     res.send('Sono nella homepage');
