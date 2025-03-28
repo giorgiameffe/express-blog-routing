@@ -4,6 +4,9 @@ const express = require('express');
 // funzione express.Router 
 const router = express.Router();
 
+// importare posts-food 
+const postsFood = require('../data/posts-food.js');
+
 // Creare rotte per operazioni CRUD
 
 // index
@@ -15,13 +18,8 @@ router.get('/', function (req,res) {
 router.get('/:id', function (req,res) {
 
     const {id} = req.params;
-    const currentPost = postsFood[id-1];
-    
-        if (id <= postsFood.length) {
-            res.json(currentPost);
-        } else {
-            res.send('Non ci sono altri elementi');
-        }
+    const currentPost = postsFood.find(post => post.slug === id);
+    res.json(currentPost);
 })
 
 // store
@@ -49,6 +47,3 @@ router.delete('/:id', function(req,res) {
 
 // esportare router
 module.exports = router;
-
-// importare posts-food 
-const postsFood = require('../data/posts-food.js');
